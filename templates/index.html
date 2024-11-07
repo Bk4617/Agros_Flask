@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrogenesis Prediction</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+    <div class="container"> <!-- Added a container for better layout -->
+        <h1>Agrogenesis Prediction</h1>
+        <form action="/prediction" method="post">
+            <label>Nitrogen:</label>
+            <input type="number" name="Nitrogen" required><br>
+            <label>Phosphorus:</label>
+            <input type="number" name="Phosphorus" required><br>
+            <label>Potassium:</label>
+            <input type="number" name="Potassium" required><br>
+            <button type="submit">Next</button>
+        </form>
+    </div>
+</body>
+</html>

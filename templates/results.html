@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        h2 {
+            margin-top: 30px;
+        }
+        img {
+            width: 500px; /* Control the size of images */
+            height: 230px; /* Maintain aspect ratio */
+            margin: 5px;
+        }
+        .image-container {
+            display: flex;
+            flex-wrap: wrap; /* Allow images to wrap to next line */
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+        .predicted-crop-image {
+            margin-top: 20px;
+            max-width: 300px; /* Control the size of the predicted crop image */
+        }
+    </style>
+</head>
+<body>
+    <h1>Crop and Fertilizer Prediction Result</h1>
+    <p>Predicted Crop: {{ predicted_crop if predicted_crop else 'No crop predicted' }}</p>
+    <p>Recommended Fertilizer: {{ predicted_fertilizer if predicted_fertilizer else 'No fertilizer recommended' }}</p>
+    
+    <!-- Display the image of the predicted crop -->
+    {% if predicted_crop %}
+        <h2>Predicted Crop Image</h2>
+        <img src="{{ url_for('static', filename='images/' + predicted_crop.upper() + '.jpg') }}" 
+             alt="{{ predicted_crop }}" 
+             class="predicted-crop-image">
+    {% endif %}
+
+    
+    <button class="back-button" onclick="history.back()">Back to Prediction Form</button>
+</body>
+</html>
